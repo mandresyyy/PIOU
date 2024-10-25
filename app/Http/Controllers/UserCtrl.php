@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\User\LoginRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -42,5 +43,31 @@ class UserCtrl extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->route('login');
+    }
+
+    public function inscription()
+    {
+        return view('pages.users.inscription');
+    }
+
+    public function saveUser(Request $request)
+    {
+        $validate = $request->validate([
+            'nom' => 'required',
+            'prenom' => 'required',
+            'email' => 'required|email',
+            're_pass' => 'required|same:pass',
+            'pass' => 'required|min:6',
+        ]);
+
+        // créer un nouvel utilisateur
+        User::create([
+            'firstname' => $request->prenom,
+            'lastname' => $request->nom,
+            'email' => $request->email,
+            'password' => bcrypt($request->pass),
+        ]);
+
+        return redirect()->back()->with('success', 'Utilisateur enregistré avec succès.');
     }
 }

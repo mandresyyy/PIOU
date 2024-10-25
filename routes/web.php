@@ -105,3 +105,9 @@ Route::get('links/{link}', Show::class)
 Route::get('bookmarks', BookmarkList::class)
     ->middleware(['auth'])
     ->name('bookmarks.index');
+
+Route::get('inscription', [UserCtrl::class, 'inscription'])
+    ->name('inscription');
+
+Route::post('inscription', [UserCtrl::class, 'saveUser'])
+    ->name('newUser');

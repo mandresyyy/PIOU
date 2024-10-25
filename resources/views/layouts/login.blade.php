@@ -12,7 +12,7 @@
             <div class="container container-tight py-4">
                 <div class="text-center mb-4">
                     <a class="navbar-brand navbar-brand-autodark" href=".">
-                        <img alt="{{ config('app.name') }}" class="navbar-brand-image" src="{{ asset('/images/logo_dark.svg') }}">
+                        <img alt="{{ config('app.name') }}" class="navbar-brand-image" src="{{ asset('/images/login.jpg') }}">
                     </a>
                 </div>
                 <div class="card card-md">
