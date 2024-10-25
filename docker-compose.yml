@@ -38,6 +38,8 @@ services:
             - 'db:/var/lib/mysql'
         networks:
             - app
+        ports:                     # Ajoutez cette section
+            - "3306:3306"
         healthcheck:
             test:
                 - CMD

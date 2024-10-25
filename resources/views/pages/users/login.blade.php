@@ -33,5 +33,10 @@
             @csrf
             <button class="btn btn-primary w-100" type="submit">{{ __('Se connecter') }}</button>
         </div>
+        <div class="#" style="margin-top:10px">
+            <label class="form-check" for="#">
+              <a href="{{ route('inscription') }}">Créer un compte</a>
+            </label>
+        </div>
     </form>
 @endsection
